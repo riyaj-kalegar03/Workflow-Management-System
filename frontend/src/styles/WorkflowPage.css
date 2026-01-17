@@ -1,0 +1,148 @@
+/* Workflow Page Styles - Dashboard layout with header and content area */
+
+.workflow-container {
+  display: flex;
+  height: 100vh;
+  background-color: var(--background-light);
+}
+
+.workflow-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.workflow-header {
+  background-color: white;
+  border-bottom: 1px solid var(--border-color);
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.workflow-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.username-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.logout-button {
+  padding: 8px 16px;
+  background-color: var(--error-red);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.workflow-content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.loading-state,
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-text {
+  font-size: 1rem;
+  color: var(--error-red);
+  text-align: center;
+}
+
+.retry-button {
+  padding: 10px 20px;
+  background-color: var(--primary-blue);
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .workflow-container {
+    flex-direction: column;
+  }
+
+  .workflow-header {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .workflow-title {
+    font-size: 1.5rem;
+  }
+
+  .user-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .workflow-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workflow-header {
+    padding: 12px 16px;
+  }
+
+  .workflow-title {
+    font-size: 1.25rem;
+  }
+
+  .workflow-content {
+    padding: 16px;
+  }
+}

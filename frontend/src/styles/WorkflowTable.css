@@ -1,0 +1,213 @@
+/* Workflow Table Styles - Responsive data table with status indicators */
+
+.table-wrapper {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.workflow-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.workflow-table thead {
+  background-color: var(--background-light);
+  border-bottom: 2px solid var(--border-color);
+  position: sticky;
+  top: 0;
+}
+
+.workflow-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.workflow-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.workflow-table tbody tr:hover {
+  background-color: var(--background-light);
+}
+
+.workflow-table td {
+  padding: 16px;
+  color: var(--text-secondary);
+}
+
+.cell-id {
+  font-family: monospace;
+  color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cell-name {
+  color: var(--text-primary);
+  font-weight: 500;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cell-status {
+  text-align: center;
+}
+
+.cell-time {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.cell-owner {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+/* Status badge styling */
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.status-scheduled {
+  background-color: #fef08a;
+  color: #854d0e;
+  border: 1px solid #fde047;
+}
+
+.status-running {
+  background-color: #bfdbfe;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.status-completed {
+  background-color: #bbf7d0;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.status-failed {
+  background-color: #fecaca;
+  color: #7f1d1d;
+  border: 1px solid #fca5a5;
+}
+
+.status-unknown {
+  background-color: #e5e7eb;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+/* Empty state styles */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.empty-state-text {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .workflow-table {
+    font-size: 0.9rem;
+  }
+
+  .workflow-table th,
+  .workflow-table td {
+    padding: 12px 8px;
+  }
+
+  .cell-name {
+    max-width: 150px;
+  }
+
+  .workflow-table thead {
+    display: none;
+  }
+
+  .workflow-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .workflow-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  .workflow-table tbody tr:hover {
+    background-color: white;
+  }
+
+  .workflow-table td {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .workflow-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 0 0 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-wrapper {
+    border-radius: 8px;
+  }
+
+  .workflow-table tbody tr {
+    padding: 12px;
+  }
+
+  .workflow-table td {
+    font-size: 0.9rem;
+  }
+
+  .cell-name {
+    max-width: 120px;
+    font-size: 0.9rem;
+  }
+
+  .status-badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}

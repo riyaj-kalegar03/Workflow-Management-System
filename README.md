@@ -90,7 +90,7 @@ npm
 
 https://github.com/riyaj-kalegar03/Workflow-Management-System.git
 
-cd react-type-script-frontend
+
 
 ## Backend Setup
 
